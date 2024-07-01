@@ -15,6 +15,12 @@ class AvaliacaoService {
     return this.avaliacaoModel.findAll();
   }
 
+  async updateAvaliacao(
+    id: number,
+    updateData: Partial<Avaliacao>
+  ): Promise<Avaliacao | null> {
+    return this.avaliacaoModel.update(id, updateData);
+  }
 }
 
 export default new AvaliacaoService();

@@ -22,6 +22,20 @@ class AvaliacaoController {
       return res.status(500).json({ error: "Error fetching assessments" });
     }
   }
+  async updateAvaliacao(req: Request, res: Response): Promise<Response> {
+    try {
+      const avaliacao = await avaliacaoService.updateAvaliacao(
+        Number(req.params.id),
+        req.body
+      );
+      if (avaliacao) {
+        return res.status(200).json(avaliacao);
+      }
+      return res.status(404).json({ error: "assessment not found" });
+    } catch (error) {
+      return res.status(500).json({ error: "Error updating assessment" });
+    }
+  }
 
 }
 

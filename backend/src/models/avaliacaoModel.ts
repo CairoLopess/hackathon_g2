@@ -23,6 +23,27 @@ class AvaliacaoModel {
     return result.rows || null;
   }
 
+  async update(id: number, avaliacao: Partial<Avaliacao>): Promise<Avaliacao | null> {
+    const fields: string[] = [];
+    const values: any[] = [];
+    let query = "UPDATE avaliacoes SET ";
+
+    Object.keys(avaliacao).forEach((key, index) => {
+      fields.push(`${key} = $${index + 1}`);
+      values.push((avaliacao as any)[key]);
+    });
+
+    query +=
+      fields.join(", ") +
+      " WHERE id = $" +
+      (fields.length + 1) +
+      " RETURNING *";
+    values.push(id);
+
+    const result = await pool.query(query, values);
+    return result.rows[0] || null;
+  }
+
 }
 
 export { Avaliacao, AvaliacaoModel };

@@ -29,3 +29,8 @@ CREATE TABLE avaliacoes (
   FOREIGN KEY (equipe_id) REFERENCES equipes (id),
   FOREIGN KEY (avaliador_id) REFERENCES avaliadores (id)
 )
+
+
+-- Add da constrainte unique_avaliador_equipe para que um avaliador nao avalie a mesma equipe duas vezes
+ALTER TABLE avaliacoes
+ADD CONSTRAINT unique_avaliador_equipe UNIQUE (avaliador_id, equipe_id);
