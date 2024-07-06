@@ -8,10 +8,11 @@
 
 -- Criação tabela avaliadores
 CREATE TABLE avaliadores (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
+  id VARCHAR(255) PRIMARY KEY,
+  name VARCHAR(255) DEFAULT 'sem nome',
   login VARCHAR(255) NOT NULL UNIQUE,
-  senha VARCHAR(255) NOT NULL
+  senha VARCHAR(255) NOT NULL,
+  logou BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 --Criação tabela equipes
@@ -34,3 +35,4 @@ CREATE TABLE avaliacoes (
 -- Add da constrainte unique_avaliador_equipe para que um avaliador nao avalie a mesma equipe duas vezes
 ALTER TABLE avaliacoes
 ADD CONSTRAINT unique_avaliador_equipe UNIQUE (avaliador_id, equipe_id);
+

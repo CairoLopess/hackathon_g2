@@ -1,4 +1,4 @@
-// File: C:\Users\cairo\OneDrive\Área de Trabalho\AMF\DesenvolvimentoI\aula15\desenvolvimento_sistemas_i_2024_01\frontend\src\app\page.tsx
+// File: C:\Users\cairo\OneDrive\Área de Trabalho\AMF\DesenvolvimentoI\hackathon_g2\frontend\src\app\page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
