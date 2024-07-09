@@ -2,18 +2,17 @@ import pool from "../database/dbConfig";
 
 interface Avaliacao {
   id?: number;
-  avaliador_id: number;
+  avaliador_id: string;
   equipe_id: number;
-  notas: string;
 }
 
 class AvaliacaoModel {
   async create(avaliacao: Avaliacao): Promise<Avaliacao> {
-    const { avaliador_id, equipe_id, notas } =
+    const { avaliador_id, equipe_id} =
       avaliacao;
     const result = await pool.query(
-      "INSERT INTO avaliacoes (avaliador_id, equipe_id, notas) VALUES ($1, $2, $3) RETURNING *",
-      [avaliador_id, equipe_id, notas]
+      "INSERT INTO avaliacoes (avaliador_id, equipe_id) VALUES ($1, $2) RETURNING *",
+      [avaliador_id, equipe_id]
     );
     return result.rows[0];
   }
@@ -41,6 +40,11 @@ class AvaliacaoModel {
     values.push(id);
 
     const result = await pool.query(query, values);
+    return result.rows[0] || null;
+  }
+
+  async findById(id: number): Promise<Avaliacao | null> {
+    const result = await pool.query("SELECT * FROM avaliacoes WHERE id = $1", [id]);
     return result.rows[0] || null;
   }
 

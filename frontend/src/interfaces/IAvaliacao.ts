@@ -1,12 +1,14 @@
 export interface IAvaliacao {
     id?: number;
-    avaliador_id: number;
+    avaliador_id: string;
     equipe_id: number;
-    notas: string;
+    notas : {
+      [key: string]: string
+    };
+    feita: boolean;
   }
 
   export interface IAvaliacaoFormData {
-    avaliador_id: number;
+    avaliador_id: string;
     equipe_id: number;
-    notas: string;
   }

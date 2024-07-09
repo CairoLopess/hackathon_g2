@@ -1,6 +1,7 @@
 {
-  "/newAvaliador/page": "app/newAvaliador/page.js",
+  "/page": "app/page.js",
   "/signUp/page": "app/signUp/page.js",
-  "/signIn/page": "app/signIn/page.js",
-  "/page": "app/page.js"
+  "/avaliadores/page": "app/avaliadores/page.js",
+  "/avaliacoes/page": "app/avaliacoes/page.js",
+  "/newAvaliacao/page": "app/newAvaliacao/page.js"
 }

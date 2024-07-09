@@ -37,6 +37,20 @@ class AvaliacaoController {
     }
   }
 
+  async getAvaliacaoById(req: Request, res: Response): Promise<Response> {
+    try {
+      const avaliacao = await avaliacaoService.getAvaliacaoById(
+        Number(req.params.id)
+      );
+      if (avaliacao) {
+        return res.status(200).json(avaliacao);
+      }
+      return res.status(404).json({ error: "assessment not found" });
+    } catch (error) {
+      return res.status(500).json({ error: "Error fetching assessment" });
+    }
+  }
+
 }
 
 export default new AvaliacaoController();

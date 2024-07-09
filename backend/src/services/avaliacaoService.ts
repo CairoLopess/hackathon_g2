@@ -21,6 +21,10 @@ class AvaliacaoService {
   ): Promise<Avaliacao | null> {
     return this.avaliacaoModel.update(id, updateData);
   }
+
+  async getAvaliacaoById(id: number): Promise<Avaliacao | null> {
+    return this.avaliacaoModel.findById(id);
+  }
 }
 
 export default new AvaliacaoService();

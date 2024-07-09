@@ -9,10 +9,16 @@ import { IAvaliadorFormData } from "@/interfaces/IAvaliador";
 import { useAuthContext } from "../../context/AuthContext";
 import { User } from "firebase/auth";
 
+
 export default function NewAvaliador() {
   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { userAuth } = useAuthContext();
+  
   const [formDataAvaliador, setFormDataAvaliador] = useState<IAvaliadorFormData>({
     id: "",
+    name: "",
     login: "",
     senha: "",
   });
@@ -20,22 +26,18 @@ export default function NewAvaliador() {
   const makePostRequest = async (user: User | undefined) => {
     try {
       const response = await api.post("/avaliadores", {
-        ...formDataAvaliador, id: user?.uid
+        ...formDataAvaliador, id: user?.uid, name: `user${user?.uid}`,
       });
 
       console.log(userAuth?.uid);
       console.log("Dados enviados com sucesso!");
       console.log("Resposta:", response.data);
 
-      router.push("/");
+      router.push(`/createName/${user?.uid}`);
     } catch (error) {
       console.error("Erro:", error);
     }
   };
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { userAuth } = useAuthContext();
 
   const handleForm = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -55,7 +57,7 @@ export default function NewAvaliador() {
 
   return (
     <div className="min-h-screen bg-gray-800 flex flex-col justify-center items-center">
-      <section className="bg-white p-8 rounded-lg shadow-lg text-black">
+      <section className="bg-gray-700 p-8 rounded-lg shadow-lg text-green-500">
         <h1 className="text-3xl font-bold mb-4">Cadastrar Avaliador</h1>
         <form onSubmit={handleForm} className="space-y-4">
           <label htmlFor="email" className="block">
@@ -84,7 +86,7 @@ export default function NewAvaliador() {
           </label>
           <button
             type="submit"
-            className="w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="w-full bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Cadastrar
           </button>
@@ -100,3 +102,4 @@ export default function NewAvaliador() {
     </div>
   );
 }
+

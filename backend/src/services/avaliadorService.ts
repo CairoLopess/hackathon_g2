@@ -15,8 +15,19 @@ class AvaliadorService {
     return this.avaliadorModel.findAll();
   }
 
-  async deleteAvaliador(id: number): Promise<void> {
+  async deleteAvaliador(id: string): Promise<void> {
     return this.avaliadorModel.delete(id);
+  }
+
+  async updateAvaliador(
+    id: string,
+    updateData: Partial<Avaliador>
+  ): Promise<Avaliador | null> {
+    return this.avaliadorModel.update(id, updateData);
+  }
+
+  async getAvaliadorById(id: string): Promise<Avaliador | null> {
+    return this.avaliadorModel.findById(id);
   }
 }
 

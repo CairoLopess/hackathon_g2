@@ -25,10 +25,39 @@ class AvaliadorController {
 
   async deleteAvaliador(req: Request, res: Response): Promise<Response> {
     try {
-      await avaliadorService.deleteAvaliador(Number(req.params.id));
+      await avaliadorService.deleteAvaliador(String(req.params.id));
       return res.status(200).json({ message: "evaluator deleted successfully" });
     } catch (error) {
       return res.status(500).json({ error: "Error deleting evaluator" });
+    }
+  }
+
+  async updateAvaliador(req: Request, res: Response): Promise<Response> {
+    try {
+      const avaliador = await avaliadorService.updateAvaliador(
+        String(req.params.id),
+        req.body
+      );
+      if (avaliador) {
+        return res.status(200).json(avaliador);
+      }
+      return res.status(404).json({ error: "evaluator not found" });
+    } catch (error) {
+      return res.status(500).json({ error: "Error updating evaluator" });
+    }
+  }
+
+  async getAvaliadorById(req: Request, res: Response): Promise<Response> {
+    try {
+      const avaliador = await avaliadorService.getAvaliadorById(
+        String(req.params.id)
+      );
+      if (avaliador) {
+        return res.status(200).json(avaliador);
+      }
+      return res.status(404).json({ error: "evaluator not found" });
+    } catch (error) {
+      return res.status(500).json({ error: "Error fetching evaluator" });
     }
   }
 }

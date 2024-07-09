@@ -1,25 +1,70 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/newAvaliador/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/newAvaliador/page.js"
+      "static/chunks/app/page.js"
+    ],
+    "/avaliacoes/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/avaliacoes/page.js"
+    ],
+    "/avaliacoes/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/avaliacoes/[id]/page.js"
+    ],
+    "/addNota/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/addNota/page.js"
+    ],
+    "/addNota/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/addNota/[id]/page.js"
+    ],
+    "/avaliadores/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/avaliadores/page.js"
+    ],
+    "/createName/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/createName/[id]/page.js"
+    ],
+    "/equipes/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/equipes/page.js"
     ],
     "/signIn/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/signIn/page.js"
+    ],
+    "/newAvaliacao/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/newAvaliacao/page.js"
+    ],
+    "/newAvaliador/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/newAvaliador/page.js"
+    ],
+    "/newEquipe/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/newEquipe/page.js"
     ],
     "/signUp/page": [
       "static/chunks/webpack.js",

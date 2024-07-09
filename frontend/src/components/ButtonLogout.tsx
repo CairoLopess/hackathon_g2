@@ -1,12 +1,14 @@
 "use client";
 
-import { ref, onValue, push } from "firebase/database";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-
 import { useAuthContext } from "../context/AuthContext";
+import { getAuth, signOut } from "firebase/auth";
+import { firebase_app } from "../services/firebase/firebaseConfiguration";
+import {useRouter} from "next/navigation";
+
+const auth = getAuth(firebase_app);
+
 
 export default function ButtonLogout() {
-    const {userAuth, logout} = useAuthContext();
-    return <button onClick = {() => logout()}>Logout</button>;
+    const router = useRouter();
+    return <button onClick = {() => (signOut(auth), router.push("/signIn" ))}>Sign Out / Sign In</button>;
 }
