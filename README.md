@@ -18,7 +18,7 @@
 
 <h3>Frontend</h3>
 <ol>
-    <li>No diretório <code>frontend</code>, crie um arquivo <code>.env</code> no diretório raiz e preencha os dados. Me chama no WhatsApp para receber os dados do <code>.env</code>.</li>
+    <li>No diretório <code>frontend</code>, crie um arquivo <code>.env</code> no diretório raiz e preencha os dados. Me chama no WhatsApp para receber os dados do <code>.env</code>. com as credenciais do firebase</li>
     <li>Instale as dependências com <code>npm install</code>.</li>
     <li>Rode o frontend com <code>npm run dev</code>.</li>
 </ol>
