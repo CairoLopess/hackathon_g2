@@ -46,13 +46,12 @@ export default function Home() {
 
       console.log("Dados enviados com sucesso!");
       console.log("Resposta:", response.data);
-
+      router.push("/");
 
     } catch (error) {
       console.error("Erro:", error);
+      alert('Erro ao cadastrar avaliacao');
     }
-
-    // router.push("/");
   };
 
   console.log(newAvaliacao);
