@@ -2,7 +2,7 @@
     
 <h2>Sobre o projeto</h2>
     <p>Esse é um sistema de avaliação de equipe do code race com base em 5 perguntas estáticas, onde é possível cadastrar avaliadores, equipes e avaliações.</p>
-    <p>Depois, cada avaliador poderá atribuir as notas para as equipes onde ele está vinculado como avaliador, assim como editar as notas.</p>
+    <p>Depois, cada avaliador poderá atribuir as notas para as equipes onde ele está vinculado como avaliador, assim como editar as notas. Não pode haver duas avaliações com o mesmo avaliador para a mesma equipe</p>
     
 <h2>Instruções de Configuração</h2>
 

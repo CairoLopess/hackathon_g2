@@ -58,7 +58,7 @@ export default function Home() {
     <main className="container mx-auto mt-8 px-4 bg-gray-900 ">
       <h1 className="text-3xl font-bold mb-8 text-center">Equipes</h1>
      
-      <div className="flex mb-8 mt-8 justify-center items-center">
+      <div className="flex mb-8 mt-8 justify-center bg-gray-900 items-center">
         <input
           type="text"
           placeholder="Filtrar por nome"
@@ -82,7 +82,7 @@ export default function Home() {
           </button>
       </div>
       
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2  bg-gray-900 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredEquipes.length > 0 ? (
           filteredEquipes.map((equipe: IEquipe) => {
             return (

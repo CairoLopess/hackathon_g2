@@ -3,13 +3,32 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import api from "../../services/api";
+import { IEquipe } from "../../interfaces/IEquipe";
+import { useEffect } from "react";
 
+async function fetchEquipes() {
+  const response = await api.get("/equipes");
+  return response.data;
+}
 
 export default function NewEquipe() {
   const router = useRouter();
   const [name, setName] = useState("");
+  const [equipes, setEquipes] = useState<IEquipe[]>([]);
+
+  useEffect(() => {
+    const getEquipes = async () => {
+      const equipesData = await fetchEquipes();
+      setEquipes(equipesData);
+    };
+    getEquipes();
+  }, []);
 
   const makePostRequest = async () => {
+    if (equipes.find((equipe) => equipe.name.toLocaleLowerCase() === name.toLocaleLowerCase())) {
+      alert("Nome ja existente, tente outro");
+      return;
+    }
     try {
       const response = await api.post("/equipes", {
         name: name,
